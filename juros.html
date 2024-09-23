@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Juros Simples</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f0f0f0;
+        }
+        .calculator {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <div class="calculator p-4">
+        <h2 class="text-center">Cálculo de Juros Simples</h2>
+        <input type="number" class="form-control" id="principal" placeholder="Capital (R$)">
+        <input type="number" class="form-control" id="rate" placeholder="Taxa de juros (%)">
+        <input type="number" class="form-control" id="time" placeholder="Tempo (anos)">
+        <button class="btn btn-primary mt-2" onclick="calculateInterest()">Calcular Juros</button>
+        <div class="result mt-3" id="interestResult"></div>
+        <a href="index.html" class="btn btn-secondary mt-3">Voltar</a>
+    </div>
+</div>
+
+<script>
+    function calculateInterest() {
+        const principal = parseFloat(document.getElementById('principal').value);
+        const rate = parseFloat(document.getElementById('rate').value);
+        const time = parseFloat(document.getElementById('time').value);
+        const interest = (principal * rate * time) / 100;
+        const totalAmount = principal + interest;
+        document.getElementById('interestResult').innerText = `Total após juros: R$ ${totalAmount.toFixed(2)}`;
+    }
+</script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
